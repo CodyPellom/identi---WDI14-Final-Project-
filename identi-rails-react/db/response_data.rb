@@ -16,7 +16,7 @@ def get_response_data
     language: "Greg, Cindy, Husband, Deborah, Printer, Agency"
 }
 
-  }
+}
 response_data
 end
 puts "Successfully Seeded Response Data"
