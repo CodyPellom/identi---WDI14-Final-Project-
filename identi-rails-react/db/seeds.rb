@@ -61,24 +61,70 @@ Correspondence.create!([{
 
 p "Created #{Correspondence.count} correspondences"
 
-Response.destroy_all
+Personality.destroy_all
 
-Response.create!([{
-  personality: "Confidence: Score 0.576, Anger: Score 0.758",
-  tone: "Sarcasm, Passive-Agressiveness, Anger, Frustration",
-  language: "Cindy, Greg, Printer, Agency",
+Personality.create!([{
+  trait_id: "facet_adventurousness",
+  name: "Adventurousness",
+  category: "personality",
+  percentile: "0.8475547997319255",
 
 },
-                  {
-  personality: "Nepsum, Lunum, Etsonero",
-  tone: "Netose, Coroopnaten, Poolsey",
-  language: "Printer, Debroah, Cidy, Greg, Husband",
+                     {
+  trait_id: "facet_artistic_interests",
+  name: "Artistic interests",
+  category: "personality",
+  percentile: "0.5450272499124973",
 },
-                  {
-  personality: "Nepsim, Seemus, Errotas, Nektodee",
-  tone: "Serios, Kantu, Decantous, Erriouas, Septuar",
-  language: "Greg, Cindy, Husband, Deborah, Printer, Agency",
+                     {
+  trait_id: "facet_intellect",
+  name: "Intellect",
+  category: "personality",
+  percentile: "0.9946027078235723",
 
 }])
 
-p "Created #{Response.count} responses"
+p "Created #{Personality.count} personalities"
+
+Tone.destroy_all
+
+Tone.create!([{
+  score: "0.565706",
+  tone_name: "Fear",
+  tone_id: "fear",
+
+},
+              {
+  score: "0.647322",
+  tone_name: "Anger",
+  tone_id: "anger",
+
+},
+              {
+  score: "0.724923",
+  tone_name: "Confident",
+  tone_id: "confident",
+
+}])
+
+p "Created #{Tone.count} tones"
+
+Language.destroy_all
+
+Language.create!([{
+  text: "desert ship",
+  relevance: "0.986974",
+
+},
+                  {
+  text: "rugged Colorado Desert",
+  relevance: "0.929987",
+
+},
+                  {
+  text: "librarian Myrtle Botts",
+  relevance: "0.906193",
+
+}])
+
+p "Created #{Language.count} languages"

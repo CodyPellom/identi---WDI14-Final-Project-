@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trait_id: MyString
+  name: MyString
+  category: MyString
+  percentile: 1
+
+two:
+  trait_id: MyString
+  name: MyString
+  category: MyString
+  percentile: 1

@@ -301,7 +301,7 @@ rails g controller api::artists (This creates not only the controller, but a fol
 
 21)
 
-next go to the artiss_controller:
+next go to the artist_controller:
 
 class Api::ArtistsController < ApplicationController
     def index

@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  resources :users
+  namespace :api do
+    resources :users do
+      resources :correspondences
+      resources :personality
+      resources :tone
+      resources :language
+    end
+  end
 end

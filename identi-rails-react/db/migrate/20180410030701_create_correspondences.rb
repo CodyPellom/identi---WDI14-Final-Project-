@@ -1,10 +1,11 @@
 caclass CreateCorrespondences < ActiveRecord::Migration[5.1]
-  def change
-    create_table :correspondences do |t|
-      t.string :title
-      t.string :input
-      t.string :resultvf23
-      t.timestamps
-    end
+
+def change
+  create_table :correspondences do |t|
+    t.string :title
+    t.string :input
+    t.string :result
+
+    t.timestamps
   end
 end
