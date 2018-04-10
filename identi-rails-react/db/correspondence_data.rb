@@ -36,9 +36,9 @@ def get_correspondence_data
     just kidding around with you. But seroiously, keep your convict
     husband away from my children! Alright, have a good one! -Deborah",
     result: "Email Response Sent to Deborah"
-},
+}
 
-    }
+  }
 correspondence_data
 end
 puts "Successfully Seeded Correspondence Data"
