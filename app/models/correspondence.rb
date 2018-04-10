@@ -1,2 +1,0 @@
-class Correspondence < ApplicationRecord
-end
