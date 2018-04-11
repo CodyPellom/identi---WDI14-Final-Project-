@@ -36,7 +36,7 @@ const FootStyler = styled.div`
   }
 
   #copyrightText {
-    font-family: 'Crimson Text';
+    font-family: "Crimson Text";
     font-size: 30.5px;
   }
 `;
@@ -54,27 +54,15 @@ class Footer extends Component {
                     i d e n t i
                   </h5>
                   <p id="footText" class="grey-text text-lighten-4">
-                    identi uses three IBM Watson APIs to analyze professional
-                    correspondence, and return feedback about personality
-                    (Wants, Needs and the Big Five), tone and natural language
-                    understanding.
+                    identi helps clients make business decisions by analyzing
+                    professional correspondence. identi uses IBM Watson's
+                    Personality Insights, Tone Analyzer, and Natural Language
+                    Understanding APIs to return insightful information and
+                    reccomendations instantly.
                     <br />
                     <br />
-                    The IBM Watson™ Personality Insights service enables
-                    applications to derive insights from social media,
-                    enterprise data, or other digital communications.
-                    <br />
-                    <br />
-                    With IBM Watson™ Natural Language Understanding, developers
-                    can analyze semantic features of text input, including
-                    categories, concepts, emotion, entities, keywords, metadata,
-                    relations, semantic roles, and sentiment.
-                    <br />
-                    <br />
-                    The Tone Analyzer service analyzes the tone of input
-                    content. This tutorial shows commands that analyze different
-                    sample content. The examples demonstrate both the general
-                    purpose and the customer engagement endpoints.
+                    With identi, you can be certain your correspondence will be
+                    interpreted as you intended it.
                   </p>
                 </div>
                 <div class="col l4 offset-l2 s12">
