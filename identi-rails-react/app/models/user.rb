@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  has_many :correspondence, dependent: :destroy
+  # has_many :correspondence, dependent: :destroy
 end
