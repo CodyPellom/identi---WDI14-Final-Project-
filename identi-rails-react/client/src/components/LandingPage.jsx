@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const LandingStyle = styled.div`
 #landing-image {
-    border: solid 4px rgb(135, 255, 201);
+    border: solid 5.25px rgb(135, 255, 201);
     width: 99.8vw;
     height: 92.6vh;
 }

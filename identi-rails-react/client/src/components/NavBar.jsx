@@ -7,6 +7,15 @@ const NavStyle = styled.div`
     a {
       color: whitesmoke;
     }
+    #logo {
+      font-family: 'Cute Font';
+      font-size: 95.5px;
+    }
+    #navLinks {
+      font-family: 'Crimson Text';
+      font-size: 30.5px;
+    }
+
   }
 `;
 
@@ -17,21 +26,21 @@ class NavBar extends Component {
         <NavStyle>
           <nav>
             <div class="nav-wrapper">
-              <a href="#" class="brand-logo left">
+              <a id="logo" href="#" class="brand-logo left">
                 identi
               </a>
               <ul id="#" class="right hide-on-med-and-down">
                 <li>
-                  <a href="#">about</a>
+                  <a id="navLinks" href="#">about</a>
                 </li>
                 <li>
-                  <a href="#">input</a>
+                  <a id="navLinks" href="#">input</a>
                 </li>
                 <li>
-                  <a href="#">analyze</a>
+                  <a id="navLinks" href="#">analyze</a>
                 </li>
                 <li>
-                  <a href="#">contact</a>
+                  <a id="navLinks" href="#">contact</a>
                 </li>
               </ul>
             </div>
