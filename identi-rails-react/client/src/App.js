@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 import LandingPage from './components/LandingPage'
 import Footer from './components/Footer'
 import Examples from './components/Examples'
+import InputCorrespondence from './components/InputCorrespondence'
 
 
 
@@ -16,6 +17,7 @@ class App extends Component {
       <NavBar />
       <LandingPage />
       <Examples />
+      <InputCorrespondence />
       <Footer />
       </div>
     );
