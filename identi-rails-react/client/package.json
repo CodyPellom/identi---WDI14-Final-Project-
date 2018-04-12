@@ -5,6 +5,7 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "ajv": "^6.4.0",
+    "async": "^2.6.0",
     "axios": "^0.18.0",
     "fetch": "^1.1.0",
     "npm": "^5.8.0",
@@ -13,7 +14,8 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "semantic-ui": "^2.3.1",
-    "styled-components": "^3.2.5"
+    "styled-components": "^3.2.5",
+    "watson-developer-cloud": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

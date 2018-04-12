@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyledInput = styled.div`
   #inputField {
     margin-top: 30vh;
-    margin-bottom: 30vh;
+    margin-bottom: 15vh;
   }
   #header {
     font-family: "Cute Font";
@@ -14,13 +14,29 @@ const StyledInput = styled.div`
 
 const ButtonStyle = styled.div`
 #buttonOne, .waves-effect, .waves-light, .btn-large {
-background-color: green;
+width: 20vw;
+margin-right: 2.5vw;
+margin-bottom:5vw;
+font-family: "Crimson Text";
+background-color: rgba(56, 255, 162, 0.75);
 }
 
 #buttonTwo, .waves-effect, .waves-light, .btn-large {
-background-color: red;
+width: 20vw;
+margin-left: 2.5vw;
+margin-bottom:5vw;
+font-family: "Crimson Text";
+background-color: rgba(56, 255, 162, 0.75);
 }
-` 
+
+#buttonThree, .waves-effect, .waves-light, .btn-large {
+width: 20vw;
+margin-left: 2.5vw;
+margin-bottom:5vw;
+font-family: "Crimson Text";
+background-color: rgba(56, 255, 162, 0.75);
+}
+`;
 
 class InputCorrespondence extends Component {
   render() {
@@ -40,8 +56,9 @@ class InputCorrespondence extends Component {
           </div>
         </StyledInput>
         <ButtonStyle>
-        <a id="buttonOne" class="waves-effect waves-light btn-large">save</a>
-        <a id="buttonTwo" class="waves-effect waves-light btn-large">submit</a>
+        <a id="buttonOne" class="waves-effect waves-light btn-large">personality traits</a>
+        <a id="buttonTwo" class="waves-effect waves-light btn-large">underlying tone</a>
+        <a id="buttonThree" class="waves-effect waves-light btn-large">natural language</a>
         </ButtonStyle>
       </div>
     );
