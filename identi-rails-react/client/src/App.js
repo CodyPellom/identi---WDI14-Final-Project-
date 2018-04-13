@@ -6,8 +6,7 @@ import LandingPage from './components/LandingPage'
 import Footer from './components/Footer'
 import Examples from './components/Examples'
 import InputCorrespondence from './components/InputCorrespondence'
-import Personality from './components/Personality'
-
+import Language from './components/Language'
 
 
 
@@ -19,7 +18,7 @@ class App extends Component {
       <LandingPage />
       <Examples />
       <InputCorrespondence />
-      <Personality />
+      <Language />
       <Footer />
       </div>
     );

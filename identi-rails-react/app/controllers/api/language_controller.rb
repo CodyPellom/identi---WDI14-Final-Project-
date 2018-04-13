@@ -37,6 +37,18 @@ class Api::LanguageController < ApplicationController
     }
   end
 
+  def natural_language_process
+    text = params[:text]
+    response = HTTParty.get("https://gateway.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2018-03-16&text=#{text}&features=concepts,entities,keywords,categories", {
+      :basic_auth => {
+        :username => "f51d874d-c219-456a-8141-60e4c4aa94e3",
+        :password => "grUqgCiZ4QUp",
+      },
+    })
+
+    render json: response
+  end
+
   private
 
   def language_params
