@@ -7,37 +7,16 @@ class Language extends Component {
     super();
     this.state = {
       error: null,
-      isLoaded: false,
+      // isLoaded: false,
       users: []
     };
   }
 
-  //   componentWillMount() {
-  //     this.fetchUsers();
-  //   }
-
-  //   fetchUsers = async () => {
-  //     try {
-  //       const res = await axios.get("/api/users/nlp");
-  //       await this.setState({ users: res.data });
-  //       return res.data;
-  //     } catch (err) {
-  //       console.log(err);
-  //       await this.setState({ error: err.message });
-  //       return err.message;
-  //     }
-  //   };
-  //sending input from user to api
-  //   sendTextApi = () => {
-
-  // };
   sendTextApi = () => {
+    // const text = this.refs.text.value;
+
     const text = this.refs.text.value;
     console.log("the text sent is" + text + "");
-}
-
-  componentDidMount() {
-    const text = this.refs.text.value;
     axios
       .get(`/api/users/nlp`, {
         params: {
@@ -49,37 +28,40 @@ class Language extends Component {
         response => {
           this.setState({
             isLoaded: true,
-            users: response.users
+            categories: response.data.categories,
+            concepts: response.data.concepts,
+            entities: response.data.entities,
+            keywords: response.data.keywords,
+            usage: response.data.usage
           });
           console.log(response.data);
         },
-        (error) => {
+        error => {
           this.setState({
             isLoaded: true,
             error
           });
         }
       );
-  }
+  };
 
   render() {
+    let catagories = "DEFAULT"
+    if (this.state.categories) {
+      catagories = this.state.categories.map((category, index) => {
+        return (<p key={index}>
+          Hello, {category.label} from {category.score}!
+        </p>);
+      });
+    }
+
     const { error, isLoaded, users } = this.state;
     if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div> Error: {error.message}</div>;
     } else {
       return (
         <div>
-          <h4>Input Information for IBM Watson to Analyze</h4>
-
-          <ul>
-            {users.map(user => (
-              <li key={user.usage}>
-                {user.keywords} {user.categories}
-              </li>
-            ))}
-          </ul>
+         {catagories}
 
           <input
             ref="text"
@@ -93,3 +75,54 @@ class Language extends Component {
 }
 
 export default Language;
+
+//   componentWillMount() {
+//     this.fetchUsers();
+//   }
+
+//   fetchUsers = async () => {
+//     try {
+//       const res = await axios.get("/api/users/nlp");
+//       await this.setState({ users: res.data });
+//       return res.data;
+//     } catch (err) {
+//       console.log(err);
+//       await this.setState({ error: err.message });
+//       return err.message;
+//     }
+//   };
+//sending input from user to api
+//   sendTextApi = () => {
+
+// };
+
+// {/* const catagory =     {this.state.catagories.map(category =>) */}
+
+//  {this.state.catagories.map((catagory, index) => (
+//     <p>This is the Catagory: {catagory.label}</p>
+//     <p>The relevence score is: {category.score}</p>
+
+// </ul>
+
+//     {/* <p>{this.state.categories}</p>
+//     <p>{this.state.concepts}</p>
+//     <p>{this.state.entities}</p>
+//     <p>{this.state.keywords}</p>
+//     <p>{this.state.usage}</p> */}
+
+// {/* //<li>{this.state.keywords}</li> */}
+
+//                                                                                 {/* {users.map(user => (
+//                                                         this.state.catagories.map <li key={user.usage}>
+//                                                {user.keywords} {user.categories}
+//                                                                            </li>
+//                                                                          ))} */}
+
+// <ul>
+// {this.state.categories.map((catagory, index) => (
+// <li><p>Catagory: {categoty.label}</p></li>
+// <li><p>relevence: {category.score}</p></li>
+
+// </ul>
+
+// ))}
