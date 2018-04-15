@@ -3,19 +3,22 @@ import styled from "styled-components";
 
 const NavStyle = styled.div`
   .nav-wrapper {
-    background-color: rgb(135, 255, 201);
+    background-color: rgb(1, 73, 188);
     a {
       color: whitesmoke;
     }
     #logo {
+      display: flex;
+      flex-direction: row;
       font-family: 'Cute Font';
       font-size: 95.5px;
+
     }
     #navLinks {
       font-family: 'Crimson Text';
       font-size: 30.5px;
     }
-
+    
   }
 `;
 

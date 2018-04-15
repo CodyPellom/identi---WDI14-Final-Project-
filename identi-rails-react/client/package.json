@@ -9,13 +9,15 @@
     "axios": "^0.18.0",
     "fetch": "^1.1.0",
     "npm": "^5.8.0",
+    "rc-progress": "^2.2.5",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "semantic-ui": "^2.3.1",
     "styled-components": "^3.2.5",
-    "watson-developer-cloud": "^3.3.0"
+    "watson-developer-cloud": "^3.3.0",
+    "watson-react-components": "^0.6.16"
   },
   "scripts": {
     "start": "react-scripts start",

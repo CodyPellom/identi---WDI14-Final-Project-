@@ -1,6 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Line, Circle } from "rc-progress";
+import styled from "styled-components";
+
+const ResponseStyler = styled.div`
+  .percentLine {
+    width: 50vw;
+  }
+`;
+
+const LanguageStyle = styled.div`
+#inputLineStyle{
+margin-top: 35vh;
+
+}
+#buttonStyle, .waves-effect, .waves-light, .btn {
+background-color: red;
+margin-bottom: 7.5vh;
+}
+`
 
 class Language extends Component {
   constructor() {
@@ -27,7 +46,7 @@ class Language extends Component {
       .then(
         response => {
           this.setState({
-            isLoaded: true,
+            // isLoaded: true,
             categories: response.data.categories,
             concepts: response.data.concepts,
             entities: response.data.entities,
@@ -38,7 +57,6 @@ class Language extends Component {
         },
         error => {
           this.setState({
-            isLoaded: true,
             error
           });
         }
@@ -46,28 +64,91 @@ class Language extends Component {
   };
 
   render() {
-    let catagories = "DEFAULT"
+    let catagories = "";
     if (this.state.categories) {
       catagories = this.state.categories.map((category, index) => {
-        return (<p key={index}>
-          Hello, {category.label} from {category.score}!
-        </p>);
+        return (
+          <div>
+            <ResponseStyler>
+              <p key={index}>
+                Categories: {category.label}
+                Category Score:
+              </p>
+              <Line
+                class="percentLine"
+                percent={category.score * 100}
+                strokeWidth="1"
+                strokeColor="#2db7f5"
+                trailColor="#D9D9D9"
+              />
+            </ResponseStyler>
+          </div>
+        );
       });
     }
 
-    const { error, isLoaded, users } = this.state;
+    let concepts = "";
+    if (this.state.concepts) {
+      concepts = this.state.concepts.map((concepts, index) => {
+        return (
+          <div>
+            <ResponseStyler>
+              <p key={index}>
+                Concepts Name: {concepts.text} Concept Relevance:
+              </p>
+              <Line
+                class="percentLine"
+                percent={concepts.relevance * 100}
+                strokeWidth="1"
+                strokeColor="#2db7f5"
+                trailColor="#D9D9D9"
+              />
+            </ResponseStyler>
+          </div>
+        );
+      });
+    }
+
+    let keywords = "";
+    if (this.state.keywords) {
+      keywords = this.state.keywords.map((keyword, index) => {
+        return (
+          <div>
+            <ResponseStyler>
+              <p key={index}>
+                Keywords: {keyword.text}
+                Relevance to Keyword:
+              </p>
+              <Line
+                class="percentLine"
+                percent={keyword.relevance * 100}
+                strokeWidth="1"
+                strokeColor="#2db7f5"
+                trailColor="#D9D9D9"
+              />
+            </ResponseStyler>
+          </div>
+        );
+      });
+    }
+
+    const { error, users } = this.state;
     if (error) {
       return <div> Error: {error.message}</div>;
     } else {
       return (
         <div>
-         {catagories}
+          <LanguageStyle>
+            {catagories}
+            {concepts}
 
-          <input
-            ref="text"
-            placeholder="example: emailed correspondence / social media samples"
-          />
-          <button onClick={this.sendTextApi}>Analyze Language</button>
+            <input id="inputLineStyle"
+              ref="text"
+              placeholder="example: emailed correspondence / social media samples"
+            />
+            <a id="buttonStyle" class="waves-effect waves-light btn" onClick={this.sendTextApi}>Analyze Language</a>
+          </LanguageStyle>
+          <div class="ui divider" />
         </div>
       );
     }
@@ -75,54 +156,3 @@ class Language extends Component {
 }
 
 export default Language;
-
-//   componentWillMount() {
-//     this.fetchUsers();
-//   }
-
-//   fetchUsers = async () => {
-//     try {
-//       const res = await axios.get("/api/users/nlp");
-//       await this.setState({ users: res.data });
-//       return res.data;
-//     } catch (err) {
-//       console.log(err);
-//       await this.setState({ error: err.message });
-//       return err.message;
-//     }
-//   };
-//sending input from user to api
-//   sendTextApi = () => {
-
-// };
-
-// {/* const catagory =     {this.state.catagories.map(category =>) */}
-
-//  {this.state.catagories.map((catagory, index) => (
-//     <p>This is the Catagory: {catagory.label}</p>
-//     <p>The relevence score is: {category.score}</p>
-
-// </ul>
-
-//     {/* <p>{this.state.categories}</p>
-//     <p>{this.state.concepts}</p>
-//     <p>{this.state.entities}</p>
-//     <p>{this.state.keywords}</p>
-//     <p>{this.state.usage}</p> */}
-
-// {/* //<li>{this.state.keywords}</li> */}
-
-//                                                                                 {/* {users.map(user => (
-//                                                         this.state.catagories.map <li key={user.usage}>
-//                                                {user.keywords} {user.categories}
-//                                                                            </li>
-//                                                                          ))} */}
-
-// <ul>
-// {this.state.categories.map((catagory, index) => (
-// <li><p>Catagory: {categoty.label}</p></li>
-// <li><p>relevence: {category.score}</p></li>
-
-// </ul>
-
-// ))}

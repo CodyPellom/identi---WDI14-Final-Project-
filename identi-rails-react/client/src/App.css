@@ -26,3 +26,7 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+html, body, header, head, footer {
+  background-color: rgb(201, 205, 211);
+}

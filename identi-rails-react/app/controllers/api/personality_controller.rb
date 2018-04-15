@@ -36,6 +36,26 @@ class Api::PersonalityController < ApplicationController
     }
   end
 
+  def personality_insights
+    text = params[:text]
+    response = HTTParty.post("https://gateway.watsonplatform.net/personality-insights/api/v3/profile?version=2017-10-13", {
+      :body => {
+        contentItems: [{
+          content: text,
+        }],
+      }.to_json,
+      :headers => {
+        "Content-Type" => "application/json",
+      },
+      :basic_auth => {
+        :username => "e803b6af-d85f-4703-b0e3-d3b196dccf28",
+        :password => "5WmNaSuvNMnt",
+      },
+    })
+
+    render json: response
+  end
+
   private
 
   def personality_params
