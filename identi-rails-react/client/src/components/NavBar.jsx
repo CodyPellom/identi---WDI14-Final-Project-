@@ -37,13 +37,13 @@ class NavBar extends Component {
                   <a id="navLinks" class="about"href="#" >about</a>
                 </li>
                 <li>
-                  <a id="navLinks" class="inputNav" href="#">input</a>
+                  <a id="navLinks" class="languageNav" href="#">language</a>
                 </li>
                 <li>
-                  <a id="navLinks" class="analyzeNav"href="#">analyze</a>
+                  <a id="navLinks" class="personalityNav"href="#">personality</a>
                 </li>
                 <li>
-                  <a id="navLinks" href="#">contact</a>
+                  <a id="navLinks" class="contactNav" href="#">contact</a>
                 </li>
               </ul>
             </div>

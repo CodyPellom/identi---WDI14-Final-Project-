@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const BuildBox = styled.div`
+
+.grow:hover
+{
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+}
   .ExamplesBuildBox {
     display: flex;
     flex-direction: row;
@@ -37,11 +44,13 @@ class Examples extends Component {
           <div id="examplesBox" class="ExamplesBuildBox">
             <img
               id="leftBox"
+              class="grow"
               src="https://i.imgur.com/4SZUMiC.jpg"
               alt="examples"
             />
             <img
               id="rightBox"
+              class="grow"
               src="https://i.imgur.com/H4TqRWZ.png"
               alt="examples"
             />

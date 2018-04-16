@@ -14,21 +14,26 @@ $(document).ready(function(){
 
     $(".about").click(function() {
         $('html, body').animate({
-            scrollTop: $("#footText").offset().top
+            scrollTop: $("#contactSection").offset().top
         }, 2000);
     });
 
-    $(".inputNav").click(function() {
+    $(".languageNav").click(function() {
         $('html, body').animate({
             scrollTop: $("#languageInput").offset().top
         }, 2000);
     });
 
-    $(".analyzeNav").click(function() {
+    $(".personalityNav").click(function() {
         $('html, body').animate({
             scrollTop: $("#personalityInput").offset().top
         }, 2000);
     });
     
+    $(".contactNav").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#footText").offset().top
+        }, 2000);
+    })
 
 })

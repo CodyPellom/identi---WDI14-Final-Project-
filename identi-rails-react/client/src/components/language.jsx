@@ -8,6 +8,9 @@ const ResponseStyler = styled.div`
   .percentLine {
     width: 50vw;
   }
+  h5 {
+    font-family: "Forum";
+  }
 `;
 
 const LanguageStyle = styled.div`
@@ -22,13 +25,25 @@ const LanguageStyle = styled.div`
     width: 50vw;
     height: 3vh;
   }
-  #buttonStyle,
+  #buttonStyle1,
   .waves-effect,
   .waves-light,
   .btn {
-    width: 15vw;
+    width: 17.5vw;
     height: 5vh;
-    font-family: 'Forum';
+    font-family: "Forum";
+    margin-right: 5vw;
+    margin-bottom: 7.5vh;
+    background-color: rgb(1, 73, 188);
+  }
+  #buttonStyle2,
+  .waves-effect,
+  .waves-light,
+  .btn {
+    width: 17.5vw;
+    height: 5vh;
+    font-family: "Forum";
+    margin-left: 5vw;
     margin-bottom: 7.5vh;
     background-color: rgb(1, 73, 188);
   }
@@ -40,9 +55,18 @@ class Language extends Component {
     this.state = {
       error: null,
       // isLoaded: false,
-      users: []
+      users: ""
     };
   }
+  handleChange = event => {
+    this.setState({
+      users: event.target.value
+    });
+  };
+
+  ClearFields = () => {
+    this.setState({ users: "" });
+  };
 
   sendTextApi = () => {
     // const text = this.refs.text.value;
@@ -83,18 +107,19 @@ class Language extends Component {
         return (
           <div>
             <ResponseStyler>
-              <p key={index}>
-                Categories: {category.label}</p>
-                <br/>
-               <p>Category Score:{category.score * 100}</p>
-              
+              <h4>Category</h4>
+              <h5 key={index}>{category.label}</h5>
+              <br />
+              <h5>Relevance to Input: {category.score * 100}</h5>
+
               <Line
                 class="percentLine"
                 percent={category.score * 100}
-                strokeWidth="1"
+                strokeWidth="2"
                 strokeColor="#2db7f5"
                 trailColor="#D9D9D9"
               />
+              <br />
             </ResponseStyler>
           </div>
         );
@@ -107,18 +132,19 @@ class Language extends Component {
         return (
           <div>
             <ResponseStyler>
-              <p key={index}>
-                Concepts Name: {concepts.text}</p>
-                <br/>
-                 <p>Concept Relevance:{concepts.relevance * 100}</p>
-              
+              <h4>Concepts</h4>
+              <h5 key={index}>Concept: {concepts.text}</h5>
+              <br />
+              <h5>Relevance to Input: {concepts.relevance * 100}</h5>
+
               <Line
                 class="percentLine"
                 percent={concepts.relevance * 100}
-                strokeWidth="1"
+                strokeWidth="2"
                 strokeColor="#2db7f5"
                 trailColor="#D9D9D9"
               />
+              <br />
             </ResponseStyler>
           </div>
         );
@@ -131,18 +157,19 @@ class Language extends Component {
         return (
           <div>
             <ResponseStyler>
-              <p key={index}>
-                Keywords: {keyword.text}</p>
-                <br/>
-               <p>Relevance to Keyword:{keyword.relevance * 100}</p>
-              
+              <h4>Keywords</h4>
+              <h5 key={index}>Keyword: {keyword.text}</h5>
+              <br />
+              <h5>Relevance to Keyword:{keyword.relevance * 100}</h5>
+
               <Line
                 class="percentLine"
                 percent={keyword.relevance * 100}
-                strokeWidth="1"
+                strokeWidth="2"
                 strokeColor="#2db7f5"
                 trailColor="#D9D9D9"
               />
+              <br />
             </ResponseStyler>
           </div>
         );
@@ -157,32 +184,56 @@ class Language extends Component {
         <div>
           <div id="languageInput">
             <LanguageStyle>
-              {catagories}
-              {concepts}
+              <div>{catagories}</div>
+              <div>{concepts}</div>
+              <div>{keywords}</div>
 
               <div class="ui message">
                 <div class="header">Natural Language Understanding</div>
                 <ul class="list">
-                  <li>Intended Use: Natural Language Understanding enables advanced text analysis through natural language processing. The service analyzes unstructured text to extract metadata such as entities, general concepts, keywords, categories, relations, sentiment, and emotion. With custom annotation models developed using Watson Knowledge Studio, you can further customize the service to identify domain-specific entities and relations in your content.</li>
-                  <li>Example Usage: Natural Language Understanding can be useful in many scenarios that demand rapid analysis of unstructured text without requiring in-depth natural language processing expertise. For example, you can monitor sentiment and emotion in customer support chat transcripts, or you can quickly categorize blog posts and sort them based on general concepts, keywords, and entities.</li>
+                  <li>
+                    Intended Use: Natural Language Understanding enables
+                    advanced text analysis through natural language processing.
+                    The service analyzes unstructured text to extract metadata
+                    such as entities, general concepts, keywords, categories,
+                    relations, sentiment, and emotion. With custom annotation
+                    models developed using Watson Knowledge Studio, you can
+                    further customize the service to identify domain-specific
+                    entities and relations in your content.
+                  </li>
+                  <li>
+                    Example Usage: Natural Language Understanding can be useful
+                    in many scenarios that demand rapid analysis of unstructured
+                    text without requiring in-depth natural language processing
+                    expertise. For example, you can monitor sentiment and
+                    emotion in customer support chat transcripts, or you can
+                    quickly categorize blog posts and sort them based on general
+                    concepts, keywords, and entities.
+                  </li>
                 </ul>
               </div>
 
               <div class="row">
                 <div class="input-field col s12">
                   <input
+                    type="text"
                     id="inputLineStyle"
                     ref="text"
+                    value={users}
+                    onChange={this.handleChange}
                   />
                 </div>
               </div>
               <br />
               <a
-                id="buttonStyle"
+                id="buttonStyle1"
                 class="waves-effect waves-light btn"
                 onClick={this.sendTextApi}
               >
                 Analyze Language
+              </a>
+              <a id="buttonStyle2" class="waves-effect waves-light btn"  onClick={this.ClearFields}>
+                Clear Input
               </a>
             </LanguageStyle>
             <div class="ui divider" />

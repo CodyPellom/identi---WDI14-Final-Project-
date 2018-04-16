@@ -4,17 +4,21 @@ import styled from "styled-components";
 const AboutStyler = styled.div`
 #pics {
     margin-left: 5vw;
+    margin-bottom: 50vh;
 }
 #pic2{
-
     margin-left: 15vw;
+    margin-bottom: 50vh;
+}
+#message{
+    margin-bottom: 50vh;
 }
 `;
 
 class Contact extends Component {
   render() {
     return (
-      <div>
+      <div id="contactSection">
         <AboutStyler>
           <div class="row">
             <div class="col s4">

@@ -56,7 +56,7 @@ class Footer extends Component {
                   <p id="footText" class="grey-text text-lighten-4">
                     identi helps clients make business decisions by analyzing
                     professional correspondence. identi uses IBM Watson's
-                    Personality Insights, Tone Analyzer, and Natural Language
+                    Personality Insights, and Natural Language
                     Understanding APIs to return insightful information and
                     reccomendations instantly.
                     <br />
