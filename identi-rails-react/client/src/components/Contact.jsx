@@ -40,9 +40,19 @@ class Contact extends Component {
                   I hope you enjoyed my final project with General Assembly!
                 </p>
                 <p>
-                  I can be contacted via LinkedIn and I am currently looking for
+                  I can be contacted via LinkedIn(link below) and I am currently looking for
                   a great team to work with!
                 </p>
+                <p>I specialize in:</p>
+                <ul>
+                    <li>JavaScript</li>
+                    <li>Ruby</li>
+                    <li>React</li>
+                    <li>Express</li>
+                    <li>Advanced CSS</li>
+                    <li>Animation</li>
+                    <li>and more...</li>
+                    </ul>
               </div>
             </div>
             <div class="col s4">

@@ -1,8 +1,8 @@
 This is the github repository for my final General Assembly project. This project is the culminaton of everything I have learned over the past three months, including front end development using React combined with API fetching and back end development using Ruby on Rails with PostGres as an SQL database. 
 
-This application will be using three IBM Watson APIs to analyze professional correspondence, and return feedback about personality (Wants, Needs and the Big Five), tone and natural language understanding. More information can be found in the IBM watson API documentation. 
+This application will be using two IBM Watson APIs to analyze professional correspondence, and return feedback about personality (Wants, Needs and the Big Five), and natural language understanding. More information can be found in the IBM watson API documentation. 
 
-******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+****************************************************************************************
 
 *Personality Insights*
 
@@ -16,25 +16,7 @@ The service can automatically infer, from potentially noisy social media, portra
  With IBM Watson™ Natural Language Understanding, developers can analyze semantic features of text input, including categories, concepts, emotion, entities, keywords, metadata, relations, semantic roles, and sentiment.
 
 
-*Tone Analyzer*
-
-The Tone Analyzer service analyzes the tone of input content. This tutorial shows commands that analyze different sample content. The examples demonstrate both the general purpose and the customer engagement endpoints.
-
-******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
-
-
-
-
-
-
-
-
-
-
-
-
-
-******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+****************************************************************************************
 
 *Github Repository*
 
@@ -58,8 +40,8 @@ https://www.figma.com/file/Ww6a0D24muF2RnKkHjcbEzO0/Final-Project-WDI14
 https://i.imgur.com/zDmEUih.png
 
 *Heroku Launch Address*
+https://identi.herokuapp.com/
 
-******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
-
+****************************************************************************************
 
 
