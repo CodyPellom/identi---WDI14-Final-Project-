@@ -12,17 +12,17 @@ const BuildBox = styled.div`
 
   #rightBox {
     margin-left: 7.5vw;
-    min-width: 30vw;
-    min-height: 37.5vh;
+    width: 30vw;
+    height: 37.5vh;
   }
 
   #leftBox {
     margin-right: 7.5vw;
-    min-width: 30vw;
-    min-height: 37.5vh;
+    width: 30vw;
+    height: 37.5vh;
   }
 
-  #identiDescriptionText {
+  #identiDescriptionText1, #identiDescriptionText2 {
     margin-bottom: 10vh;
     margin-left: 2vw;
     max-width: 95vw;
@@ -34,26 +34,26 @@ class Examples extends Component {
     return (
       <div>
         <BuildBox>
-          <div class="ExamplesBuildBox">
+          <div id="examplesBox" class="ExamplesBuildBox">
             <img
               id="leftBox"
-              src="https://i.imgur.com/L1yrlaZ.png"
+              src="https://i.imgur.com/4SZUMiC.jpg"
               alt="examples"
             />
             <img
               id="rightBox"
-              src="https://i.imgur.com/L1yrlaZ.png"
+              src="https://i.imgur.com/H4TqRWZ.png"
               alt="examples"
             />
           </div>
-          <div id="identiDescriptionText" class="ui piled segment">
+          <div id="identiDescriptionText1" class="ui piled segment">
             <p>
               identi uses three IBM Watson APIs to analyze professional
               correspondence, and return feedback about personality (Wants,
               Needs and the Big Five), tone and natural language understanding.
             </p>
           </div>
-          <div id="identiDescriptionText" class="ui piled segment">
+          <div id="identiDescriptionText2" class="ui piled segment">
             <p>
               The IBM Watson™ Personality Insights service enables applications
               to derive insights from social media, enterprise data, or other

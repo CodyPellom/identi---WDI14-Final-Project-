@@ -8,7 +8,7 @@ import Examples from './components/Examples'
 import InputCorrespondence from './components/InputCorrespondence'
 import Language from './components/Language'
 import Personality from './components/Personality'
-
+import Contact from './components/Contact'
 
 
 class App extends Component {
@@ -20,6 +20,7 @@ class App extends Component {
       <Examples />
       <Language />
       <Personality />
+      <Contact />
       <Footer />
       </div>
     );

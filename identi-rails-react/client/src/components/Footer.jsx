@@ -12,31 +12,31 @@ const FootTextStyle = styled.div`
 
 const FootStyler = styled.div`
   .page-footer {
-    background-color: rgb(135, 255, 201);
+    background-color: rgb(1, 73, 188);
   }
 
   #logo {
-    font-family: "Cute Font";
+    font-family: "Forum";
     font-size: 95.5px;
   }
 
   #footText {
-    font-family: "Crimson Text";
+    font-family: "Forum";
     font-size: 20.5px;
   }
 
   #resources {
-    font-family: "Cute Font";
+    font-family: "Forum";
     font-size: 60px;
   }
 
   #resourcesText {
-    font-family: "Crimson Text";
+    font-family: "Forum";
     font-size: 20.5px;
   }
 
   #copyrightText {
-    font-family: "Crimson Text";
+    font-family: "Special Elite";
     font-size: 30.5px;
   }
 `;
@@ -62,7 +62,7 @@ class Footer extends Component {
                     <br />
                     <br />
                     With identi, you can be certain your correspondence will be
-                    interpreted as you intended it.
+                    interpreted as you intended.
                   </p>
                 </div>
                 <div class="col l4 offset-l2 s12">
@@ -117,8 +117,7 @@ class Footer extends Component {
             </div>
             <div class="footer-copyright">
               <div id="copyrightText" class="container">
-                © 2018 Buckhead Web Development & Consultation (a Cody Pellom
-                LLC)
+                © 2018 Cody Pellom
                 <a class="grey-text text-lighten-4 right" />
               </div>
             </div>

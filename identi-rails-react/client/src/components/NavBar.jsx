@@ -10,12 +10,12 @@ const NavStyle = styled.div`
     #logo {
       display: flex;
       flex-direction: row;
-      font-family: 'Cute Font';
-      font-size: 95.5px;
+      font-family: 'Forum';
+      font-size: 60px;
 
     }
     #navLinks {
-      font-family: 'Crimson Text';
+      font-family: 'Forum';
       font-size: 30.5px;
     }
     
@@ -34,13 +34,13 @@ class NavBar extends Component {
               </a>
               <ul id="#" class="right hide-on-med-and-down">
                 <li>
-                  <a id="navLinks" href="#">about</a>
+                  <a id="navLinks" class="about"href="#" >about</a>
                 </li>
                 <li>
-                  <a id="navLinks" href="#">input</a>
+                  <a id="navLinks" class="inputNav" href="#">input</a>
                 </li>
                 <li>
-                  <a id="navLinks" href="#">analyze</a>
+                  <a id="navLinks" class="analyzeNav"href="#">analyze</a>
                 </li>
                 <li>
                   <a id="navLinks" href="#">contact</a>

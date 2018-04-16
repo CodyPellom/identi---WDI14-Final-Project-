@@ -1,5 +1,37 @@
 import React, { Component } from "react";
 import axios from "axios";
+import styled from "styled-components";
+import { Line, Circle } from "rc-progress";
+
+const InputStyler = styled.div`
+  #personalityInput {
+    margin-top: 35vh;
+    width: 50vw;
+    height: 5vh;
+  }
+
+  .ui,
+  .message {
+    margin-left: 10vw;
+    width: 75vw;
+  }
+  #buttonStyle,
+  .waves-effect,
+  .waves-light,
+  .btn {
+    width: 15vw;
+    height: 5vh;
+    font-family: 'Forum';
+    margin-bottom: 7.5vh;
+    background-color: rgb(1, 73, 188);
+  }
+`;
+
+const ResponseStyler = styled.div`
+.percentLine{
+  width: 50vw;
+}
+`
 
 class Personality extends Component {
   constructor() {
@@ -15,19 +47,18 @@ class Personality extends Component {
     console.log("The text sample you sent: " + text + " ");
     axios
       .post(`/api/users/pi`, {
-         
-          text: text
-        
+        text: text
+
         //response from Personality controller. route is api/users/pi
       })
-      .then(response => {
-        console.log("API RETURNED!", response.data);
+      .then(
+        response => {
+          console.log("API RETURNED!", response.data);
 
           this.setState({
             needs: response.data.needs,
             personality: response.data.personality,
-            values: response.data.values,
-           
+            values: response.data.values
           });
         },
         error => {
@@ -43,15 +74,60 @@ class Personality extends Component {
     let needs = "";
     if (this.state.needs) {
       needs = this.state.needs.map((need, index) => {
-        return(
+        return (
           <div>
-      <h1>Personality Category</h1>
-          <p key={index}>
-             Personality Name: {need.name} Personality Catagory: {need.category} Percentile: {need.percentile} Significance: {need.significant}
-          </p>
+            <h6>Personality Insights: Needs</h6>
+            <p key={index}>Need Name:{need.name}</p>
+            <br />
+            <p>Need Percentile:</p>
+            <Line
+              class="percentLine"
+              percent={need.percentile * 100}
+              strokeWidth="1"
+              strokeColor="#2db7f5"
+              trailColor="#D9D9D9"
+            />
           </div>
         );
       });
+    }
+    let personality = "";
+    if (this.state.personality) {
+      personality = this.state.personality.map((personality, index) => {
+        return (
+          <div>
+            <p key={index}>Personality Name: {personality.name} </p>
+            <br />
+            <p>Personality Percentile:</p>
+            <Line
+              class="percentLine"
+              percent={personality.percentile * 100}
+              strokeWidth="1"
+              strokeColor="#2db7f5"
+              trailColor="#D9D9D9"
+            />
+          </div>
+        );
+      });
+    }
+    let values = "";
+    if (this.state.values) {
+      values = this.state.values.map((value, index) => {
+        return(
+          <div>
+            <p key={index}>Value Name: {value.name}</p>
+            <br/>
+            <p>Value Percentile:</p>
+            <Line
+              class="percentLine"
+              percent={value.percentile * 100}
+              strokeWidth="1"
+              strokeColor="#2db7f5"
+              trailColor="#D9D9D9"
+            />
+          </div>
+        )
+      })
     }
 
     const { error, traits } = this.state;
@@ -60,17 +136,44 @@ class Personality extends Component {
     } else {
       return (
         <div>
-          {needs}
+          <InputStyler>
+            {needs}
 
-          
-        
-          <input
-            ref="text"
-            placeholder="example: emailed correspondence or social media snippets"
-          />
-          <button onClick={this.sendTraitsApi}>
-            Analyze Personality Traits
-          </button>
+            <div class="ui message">
+              <div class="header">Personality Insights </div>
+              <ul class="list">
+                <li>
+                  Enables deeper understanding of people's personality
+                  characteristics, needs, and values to help engage users on
+                  their own terms
+                </li>
+                <li>
+                  You can input: JSON, or Text or HTML (such as social media,
+                  emails, blogs, or other communication) written by one
+                  individual
+                </li>
+                <li>
+                  And the service will output: A tree of cognitive and social
+                  characteristics in JSON or CSV format
+                </li>
+              </ul>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="personalityInput" ref="text" type="text" />
+              </div>
+            </div>
+            <br />
+            <a
+              id="buttonStyle"
+              class="waves-effect waves-light btn"
+              onClick={this.sendTraitsApi}
+            >
+              Analyze Personality Traits
+            </a>
+          </InputStyler>
+          <div class="ui divider" />
         </div>
       );
     }
@@ -78,43 +181,3 @@ class Personality extends Component {
 }
 
 export default Personality;
-
-// state = {
-//     personalityInsights: []
-// };
-
-// componentDidMount(){
-//     axios({
-//             url: 'https://gateway.watsonplatform.net/natural-language-understanding/api/v1/analyze',
-//             method: 'get',
-//             username: process.env.REACT_APP_PERSONALITY_INSIGHTS_USERNAME,
-//             password: process.env.REACT_APP_PERSONALITY_INSIGHTS_PASSWORD,
-//             header: "Content-Type: application/json",
-//             data_binary: "We observe today not a victory of party but a celebration of freedom, symbolizing an end as well as a beginning, signifying renewal as well aschange. For I have sworn before you and Almighty God the same solemn oath our forbears prescribed nearly a century and three-quarters ago."
-
-//         })
-
-//     .then((response) => {
-//         const personalityInsights = response.data;
-//         console.log(response.data);
-//         this.setState({personalityInsights: personalityInsights});
-//     })
-//     .catch((error) => {
-//     console.error("error": "error");
-//     });
-// }
-// render() {
-//     const personalityInsights = this.state.personalityInsights.map((insights, i) => (
-//        <div className="insights" key={i}>
-//         <p>{insights.keywords}</p>
-//         </div>
-//     ))
-//     return (
-//         <div className="personalityInsightsContainer">
-//         <h3>Sample Personality Insights</h3>
-//         <div className="personalityInsightsFlexContainer">
-//           {personalityInsights}
-//         </div>
-//       </div>
-//     );
-// }
